@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+section {
+    border-radius: 10px;
+    background-color: #000000;
+    margin: auto;
+    height: 400px;
+    width: 250px;
+
+    
+}
+
+section h2 {
+    margin-right: 17px;
+    text-align: right;
+    color:white;
+
+    font-size: 5rem;
+}
+
+section div {
+    display: flex;
+    align-items: center;
+   
+}
+
+.btn {
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 1.7rem;
+    border: none;
+    outline:none;
+
+    margin: 2px;
+}
+
+.btn-gris{
+    background-color: #a5a5a5;
+    color: #232323;
+}
+
+.btn-grisOscuro{
+    background-color: #333333;
+    color: #e0e0e0;
+    padding: 10px 12px;
+}
+
+.btn-orange{
+    background-color: #f2993e;
+    color: #f7e9ca;
+    padding: 10px 15px;
+}
