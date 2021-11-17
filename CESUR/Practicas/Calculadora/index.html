@@ -16,14 +16,14 @@
 
     <section>
         
-            <h2 id="total">0</h2>
+            <h2 id="total"></h2>
         
     
         <div>
 
             <input class="btn btn-gris" onclick="borrar()"id="borrar" type="button" value="AC">
-            <input class="btn btn-gris" type="button" value="+/-">
-            <input class="btn btn-gris" type="button" value="%">
+            <input onclick="valorNegativo()" class="btn btn-gris" type="button" value="+/-">
+            <input class="btn btn-gris" onclick="getValor_modulo()" id="modulo" type="button" value=" % ">
             <input class="btn btn-orange" onclick="getValor_dividir()"id="Dividir" type="button" value=" / ">
         </div>
 
@@ -50,12 +50,12 @@
         </div>
            
         <div>
-            <input class="btn btn-grisOscuro" onclick="getValor_n0()"id="cero" type="button" value="0        ">
-            <input class="btn btn-grisOscuro" id="coma" type="button" value=" , ">
+            <input class="btn btn-grisOscuro" onclick="getValor_n0()"id="cero" type="button" value="  0      ">
+            <input class="btn btn-grisOscuro" onclick="ponerComa()" id="coma" type="button" value="  .  ">
             <input class="btn btn-orange" onclick="resultado()" id="resultado" type="button" value = " = ">
         </div>
     </section>
 
-    <script src="./main.js"></script>
+    <script src="./main2.0.js"></script>
 </body>
 </html>

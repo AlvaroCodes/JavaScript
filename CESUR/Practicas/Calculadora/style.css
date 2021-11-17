@@ -28,6 +28,7 @@ section h2 {
 section div {
     display: flex;
     align-items: center;
+    margin-left: 5px;
    
 }
 
@@ -56,4 +57,15 @@ section div {
     background-color: #f2993e;
     color: #f7e9ca;
     padding: 10px 15px;
+}
+
+
+.h2Pequeño {
+    padding: 25px 0px 35px 0px;
+    font-size: 2rem;
+}
+
+.h2Pequeño2 {
+    padding: 35px 0px 45px 0px;
+    font-size: 1.3rem;
 }
