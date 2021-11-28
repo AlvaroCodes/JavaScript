@@ -1,0 +1,4 @@
+Una manera de proteger y optimizar el codigo. 
+https://www.toptal.com/developers/javascript-minifier/
+
+Ejemplo en Blackjack juego-min.js

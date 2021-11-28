@@ -1,3 +1,7 @@
+(() => { // Patron modulo 
+    'use strict'
+
+    
 /**
  * 2C = Two of Clubs
  * 2D = Two of Diamonds
@@ -46,7 +50,6 @@ const crearDeck = () => {
     sheffle lo que hace es mezclar el codigo. 
     */
     deck = _.shuffle( deck );
-    console.log( deck );
     return deck;
 }
 
@@ -57,8 +60,13 @@ crearDeck();
 const pedirCarta = () => {
 
     if ( deck.length === 0 ) {
+        // Para mostrar un error se usa throw; 
+        // Termina la ejecucion 
         throw 'No hay cartas en el deck';
     }
+
+    /* Coge una carta y la quita del mezo */
+    // Se utiliza pop para coger una varible del Array y la quita
     const carta = deck.pop();
     return carta;
 }
@@ -69,8 +77,17 @@ const valorCarta = ( carta ) => {
     const valor = carta.substring(0, carta.length - 1);
     return ( isNaN( valor ) ) ? 
             ( valor === 'A' ) ? 11 : 10
-            : valor * 1;
+            : valor * 1; // Para transformar un numero de string a 
+                        // integer se multiplica por 1 ('3'* 1)
 }
+
+/* 
+if (isNaN(valor)){
+    puntos = (valor === 'A')?11:10;
+}else {
+    puntos = valor * 1;
+}
+*/
 
 // turno de la computadora
 const turnoComputadora = ( puntosMinimos ) => {
@@ -78,7 +95,7 @@ const turnoComputadora = ( puntosMinimos ) => {
     do {
         const carta = pedirCarta();
 
-        puntosComputadora = puntosComputadora + valorCarta( carta );
+        puntosComputadora += valorCarta( carta );
         puntosHTML[1].innerText = puntosComputadora;
         
         // <img class="carta" src="assets/cartas/2C.png">
@@ -93,6 +110,8 @@ const turnoComputadora = ( puntosMinimos ) => {
 
     } while(  (puntosComputadora < puntosMinimos)  && (puntosMinimos <= 21 ) );
 
+    // Al ser tan rapida la ejecucion es necesario poner que se muestra
+    // con mas tiempo despues de poner las cartas 
     setTimeout(() => {
         if( puntosComputadora === puntosMinimos ) {
             alert('Nadie gana :(');
@@ -109,11 +128,13 @@ const turnoComputadora = ( puntosMinimos ) => {
 
 
 // Eventos
+// CALLBACK funcion por argumento
+/* Cuando se ejecuta la accion se ejecuta la funcion */
 btnPedir.addEventListener('click', () => {
 
     const carta = pedirCarta();
     
-    puntosJugador = puntosJugador + valorCarta( carta );
+    puntosJugador += valorCarta( carta );
     puntosHTML[0].innerText = puntosJugador;
     
     // <img class="carta" src="assets/cartas/2C.png">
@@ -164,3 +185,8 @@ btnNuevo.addEventListener('click', () => {
     btnDetener.disabled = false;
 
 });
+
+
+   
+
+})();
