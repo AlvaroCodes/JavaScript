@@ -1,5 +1,0 @@
-
-var nombre = "";
-
-
-alert();
