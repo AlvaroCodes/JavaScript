@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Ejercicio 3</h1>
+
+    <script>
+        
+        class Stack{
+            constructor(pila){
+                this.pila = pila;
+            }
+
+            pilaPush(valor){
+                this.pila.push(valor);
+            }
+
+            pilaPop(valor){
+                this.pila.pop();
+            }
+
+            pilaPrint(){
+                console.log(this.pila);
+            }
+        }
+
+        class Queue{
+            constructor(cola){
+                this.cola = cola;
+            }
+
+            enqueue(valor){
+                this.cola.unshift(valor);
+            }
+
+            dequeue(){
+                this.cola.pop();
+            }
+
+            printCola(){
+                console.log(this.cola);
+            }
+
+        }
+
+
+        let x = [];
+        const s = new Stack(x);
+
+        s.pilaPush(1);
+        s.pilaPush(2);
+        s.pilaPrint();
+        s.pilaPop();
+        s.pilaPrint();
+
+        ///// 
+        let x1= [];
+        const s1 = new Queue(x1);
+
+        s1.enqueue(1);
+        s1.enqueue(2);
+        s1.enqueue(3);
+        s1.enqueue(4);
+        s1.enqueue(5);
+        s1.enqueue(6);
+
+        s1.dequeue();
+
+        s1.printCola();
+
+        s1.enqueue(6);
+
+        s1.printCola();
+
+
+    </script>
+</body>
+</html>

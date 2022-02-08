@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // let colores = ['rojo', 'verde', 'blanco'];
+        
+        const colores = ['rojo', 'verde', 'blanco'];
+        console.log(colores[0]); // Primera posicion 
+        console.log(colores.length); // tamaño
+        colores[0] = 'morado';
+        console.log(colores[0])
+
+        colores.forEach((element)=>{
+            console.log(element);
+        })
+
+
+        let x = prompt('Introduce color');
+        let encontrado = false;
+        x.toLowerCase();
+        for (let i = 0; i < colores.length; i++) {
+            if (colores[i] === x){
+                alert(` El color se encuentra en la posicion ${i}`);
+                encontrado = true;
+                colores.splice(i,1);
+                break;
+            } 
+              
+        }
+        if (!encontrado) {
+            alert('No se ha encontrado');
+            // colores = [...colores, x];   
+            colores.push(x);  
+        }
+
+        console.log({colores});
+       // Incluir  colores.push('Rojo'); 
+       // eliminar colores.pop();
+
+    </script>
+</body>
+</html>

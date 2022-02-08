@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <h1>Ejercicio 8</h1>
+
+    <script>
+
+        const arrayPrueba = [1,2,2];
+    
+
+        const simetricos = (arrayPrueba) => {
+
+            if (arrayPrueba.length == 0){
+                return 'Esta vacío, true :)';
+            }else if (arrayPrueba.length == 1){
+                return 'Tiene un elemento, true :)';
+            } else if (arrayPrueba.length % 3 == 0 || arrayPrueba.length % 5 == 0){
+                let indiceMedio = arrayPrueba.length / 2;
+                indiceMedio = (Math.round(indiceMedio)) - 1;
+        
+                for (let i = indiceMedio - 1, j = indiceMedio + 1; j < arrayPrueba.length; i--, j++ ) {
+            
+                 //console.log(i + ' - '+j);
+                // console.log(arrayPrueba[i]+' '+arrayPrueba[j]);   
+                
+                if (arrayPrueba[i] != arrayPrueba[j]){ return 'No son iguales'}
+                
+            }
+
+            return 'Son iguales';
+            }
+
+     
+
+            let indiceMedio = arrayPrueba.length / 2;
+        
+            for (let i = indiceMedio - 1, j = indiceMedio; j < arrayPrueba.length; i--, j++ ) {
+           
+            // console.log(i + ' - '+j);
+             console.log(arrayPrueba[i]+' '+arrayPrueba[j]);   
+             
+             if (arrayPrueba[i] != arrayPrueba[j]){'No son iguales'}
+            
+        }
+
+        return 'Son iguales';
+    }
+
+        console.log(simetricos(arrayPrueba));
+
+    </script>
+    
+</body>
+</html>

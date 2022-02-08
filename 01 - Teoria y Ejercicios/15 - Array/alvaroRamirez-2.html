@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Ejercicio 2</h1>
+
+    <label for="fibo">Introduce cuando numeros de fibonacci (+4): </label>
+    <input type="number" id="valor">
+    <button onclick="app()">Mostrar resultado</button>
+
+
+    <script>
+
+
+
+        const calcularNfibo = (numeroUsuario) => {
+
+            if (typeof(numeroUsuario) === 'number' && numeroUsuario > 4){
+            const nFibo = numeroUsuario - 2;
+            let numerosFibo = [];
+
+            let a = 0;
+            let b = 1;
+            let r = 0;
+
+
+            numerosFibo.push(0);
+            numerosFibo.push(1);
+            for (let i = 1; i <= nFibo; i++) {
+                r = a + b;
+                numerosFibo.push(r);
+
+                // Se muestra cuando el numero es 2
+                r === 2 && console.log(numerosFibo[3]);
+
+                a = b;
+                b = r;
+            
+            }
+
+            console.log(numerosFibo);
+
+            return numerosFibo;
+        }else {
+            alert('Introduce un numero superior a 4');
+            console.log('Introduce un numero superior a 4');
+        }
+        }
+
+        const sumaFibo = (arr) => {
+
+            let cadena = '';
+            let total = 0;
+            for (let i = 0; i < arr.length; i++) {
+            
+            total += arr[i];
+
+            if (i + 1 === arr.length) {
+                 cadena+= ` ${arr[i]} `;
+                 console.log(cadena)
+                break;
+            }
+
+            cadena+= `${arr[i]}  +`;
+
+            console.log(cadena);
+                    
+            }
+
+
+            let divFibo = document.createElement("div");
+            divFibo.innerHTML =  `<p> ${cadena} = ${total}</p>`
+            document.body.appendChild(divFibo);
+
+        }
+      
+
+        const app = () => {
+            let valorUsuario = document.querySelector('#valor').value;
+            valorUsuario = parseInt(valorUsuario, 10);
+
+            const arr = calcularNfibo(valorUsuario);
+            arr && sumaFibo(arr); // Controla el error si se introduce 
+                                // un numero inferior a 4
+        }
+
+    </script>
+</body>
+</html>

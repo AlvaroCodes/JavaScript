@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="colores">
+ 
+        <option value="red">Rojo</option>
+        <option value="green">Verde</option>
+        <option value="white">Blanco</option>
+    </select>
+    <button onclick="cambiarColor()">Cambiar el color</button>
+
+    <script>
+        const cambiarColor = () => document.bgColor = document.querySelector('#colores').value;
+    </script>
+</body>
+
+</html>

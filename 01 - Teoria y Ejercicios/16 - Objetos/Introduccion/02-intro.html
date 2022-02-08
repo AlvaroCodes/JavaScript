@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        const person = {
+            name: 'Jhon', 
+            apellido: 'Doe',
+            // Con function necesario this
+            saludo: function() {
+               return 'Hola, Soy '+ this.name;
+            }, 
+
+            // Funcion flecha necesario llamar a person
+            fullName: () => `${person.name} ${person.apellido}`
+        }
+
+        console.log(person.fullName());
+        console.log(person.saludo());
+
+        // Añadir atributos a objetos
+        person.altura = 123;
+
+        console.log(person);
+
+
+        function Persona(nombre, apellido, edad) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.edad = edad;
+            this.nombreCompleto = `${nombre} ${apellido}`;
+        }
+
+        const p1 = new Persona('Juan', 'RR', 221);
+        
+        // Prototipo
+       // const otraPersona  = Object.create(Persona);
+
+        // Herencia
+        // Persona.alturaMax = function () {
+           // console.log('2m es MAX');
+       // }
+        // otraPersona.alturaMax();
+        // console.log({otraPersona}); // undefined
+
+
+        function Persona2(nombre, apellido, edad) {
+
+            return {
+                nombre, 
+                apellido, 
+                edad, 
+                nombreCompleto: () => `${nombre} ${apellido}`
+            }
+        }
+
+        let {nombre, nombreCompleto} = Persona2('Alvaro', 'Ramirez', 23)
+
+        console.log(nombre);
+        console.log(nombreCompleto());
+
+
+    </script>
+</body>
+</html>

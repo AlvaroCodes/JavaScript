@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Ejercicio 5</h1>
+    <script>
+        const Persona = {
+            nombre: 'Manuel', 
+            apellido: 'Ruiz de Lopera',
+            edad: 75,
+            toString: function () {
+                return `${this.apellido}, ${this.nombre} - ${this.edad} años`
+            }
+        }
+
+
+        Persona.hola = function () {
+            alert(`¡Hola, ${Persona.nombre}`)
+        }
+
+
+        Persona.hola();
+        console.log({Persona});
+    
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        const persona = {
+            name: 'Alvaro', 
+            apellido: 'ramirez'
+        }
+
+        // Contructor, necesita el new - no return
+        function Animal1(especie) {
+            // especie = 'Hola';
+
+            // This añadimos atributos al objeto
+            this.especie = 'Hola';
+        }
+
+
+
+        function Animal(especie) {
+            return {
+                especie: 'hola'
+            }
+        }
+
+        const p = new Animal1();
+        console.log(p)
+
+        console.log(p.especie);
+        console.log(p['especie']);
+        
+        console.log(persona);
+        console.log(Animal());
+    </script>
+</body>
+</html>

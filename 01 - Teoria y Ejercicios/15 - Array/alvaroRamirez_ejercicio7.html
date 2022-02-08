@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ejercicio 7</h1>
+
+    <script>
+
+// inclu - excl
+
+        const randomNumeros = (min, max)  => {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+
+        const createArray = () => {
+
+            let arr = [];
+
+            for (let i = 1; i <= 10; i++) {
+                arr.push(randomNumeros(0,11));
+            }
+
+            return arr;
+
+        }
+
+     
+
+        let myArray = createArray();
+        myArray.sort(function(a, b){return a-b});
+
+        const mayorMenor = {
+            max: myArray[0], 
+            min: myArray[myArray.length -1]
+        }
+        console.log(mayorMenor);
+     
+    </script>
+</body>
+</html>

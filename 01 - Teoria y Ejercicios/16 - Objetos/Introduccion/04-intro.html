@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const parent = {
+            val: 42,
+            get: function fn () {
+                return this.val;
+            }
+        }
+
+        const chiled = Object.create(parent); 
+        chiled.val = 31;
+
+        const grandChiled = Object.create(chiled);
+
+        console.log(grandChiled.get());
+
+
+        function Person(first, last, age, gender, interests) {
+            this.name = {
+                first, 
+                last
+            };
+            this.age = age;
+            this.gender = gender;
+            this.interests = interests;
+        }
+
+        const Persona = new Person('paco', 'gomez', 38, 'female', ['soccer', 'tennis']);
+        console.log(Persona);
+        Person.prototype.greeting = function () {
+            alert('Hola' +' '+this.name.first);
+        }
+
+        console.log(Persona.greeting());
+
+    </script>
+</body>
+</html>

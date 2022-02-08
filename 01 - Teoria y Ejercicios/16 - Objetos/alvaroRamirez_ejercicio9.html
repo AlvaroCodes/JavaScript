@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Ejercicio 9</h1>
+
+    
+
+    <script>
+         function Persona (nomnbre, apellido, edad) {
+            this.nombre = nomnbre;
+            this.apellido = apellido;
+            this.edad = edad;
+
+            this.toString = function () {
+                return `${this.apellido}, ${this.nombre} - ${this.edad} años`
+            }
+        }
+
+        const Manuel = new Persona ('Manuel', 'A. Ruiz de Lopera', 23);
+        const Juan = new Persona ('Ana', 'Ruiz de Lopera', 21);
+        const Gonzalo = new Persona ('Gonzalo', 'Ruiz de Lopera', 75);
+        const Alvaro = new Persona ('Alvaro', 'Ruiz de Lopera', 75);
+
+        console.log({Manuel});
+        console.log( Manuel.toString());
+
+        let arrPersonas = [Manuel, Juan, Gonzalo, Alvaro];
+        let listaLi = '';
+
+        arrPersonas.forEach(element => {
+            let li = ` <li> ${element.toString()}</li>`;
+            listaLi =  listaLi + li ;
+
+        });
+
+   
+        document.body.innerHTML = `<ol> ${listaLi}</ol>`
+        ///////
+        let x = document.createElement('ol');
+        x.innerHTML = listaLi;
+        document.body.appendChild(x);
+    
+    </script>
+</body>
+</html>

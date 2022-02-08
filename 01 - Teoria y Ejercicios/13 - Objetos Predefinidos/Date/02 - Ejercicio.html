@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>¡Buenos Días!</h1>
+    <p id="fecha"></p>
+
+    <script>
+
+            const  dia = new Date();
+
+            let fecha = "Hoy es "+dia.getDay()+" de "+ meses(dia.getMonth())+" de "+dia.getFullYear();
+            document.querySelector('#fecha').innerHTML = fecha;
+
+
+
+            function meses (numeroMes){
+                switch(numeroMes){
+                    case 0: 
+                        return "Enero";
+                    break;
+                    case 1: 
+                        return "Febrero";
+                    break;
+                    case 2: 
+                        return "Marzo";
+                    break;
+                    case 3: 
+                        return "Abril";
+                    break;
+                    case 4: 
+                        return "Mayo";
+                    break;
+                    case 5: 
+                        return "Junio";
+                    break;
+                    case 6: 
+                        return "Julio";
+                    break;
+                    case 7: 
+                        return "Agosto";
+                    break;
+                    case 8: 
+                        return "Septiemvre";
+                    break;
+                    case 9: 
+                        return "Octurbe";
+                    break;
+                    case 10: 
+                        return "Noviembre";
+                    break;
+                    case 11: 
+                        return "Diciembre";
+                    break;
+                }
+        }
+    </script>
+</body>
+</html>

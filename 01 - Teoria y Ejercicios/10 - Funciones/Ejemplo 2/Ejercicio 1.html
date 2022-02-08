@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     /*
+     Escribir una función que reciba como parámetro dos números decimales: iva y precio. Devolverá el precio con iva. 
+     Al invocar a la función, ¿qué pasa si no se le introduce alguno de los parámetros?
+     ¿y si se introducen más parámetros de la cuenta?
+     */
+    
+   function func (iva, precio){
+        let r = (precio * iva) / 100; 
+        return r;       
+     }
+
+     /* Coge la ultima
+     function func (iva, precio){
+        let r = (precio - iva) * 100; 
+        return r;       
+     }*/
+
+    /*
+   function func (iva, precio){
+        if (arguments.length == 2){
+            let r = (precio * iva) / 100; 
+        return r;
+        }else {
+            return 'No se ha podido ejecutar';
+        }
+       
+     }*/
+
+     alert(func(25,10));
+    </script>
+</body>
+</html>

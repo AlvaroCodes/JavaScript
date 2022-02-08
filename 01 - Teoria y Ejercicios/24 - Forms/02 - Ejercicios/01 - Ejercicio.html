@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+        <!--
+        ######
+
+        ** Ejercicio **
+
+        Crea un textArea, tienes que validar el formulario, será true si no contiene numero y false si contiene numeros.
+
+
+        ·· Teoria
+        https://www.w3schools.com/jsref/jsref_obj_regexp.asp
+
+        ######
+    -->
+</head>
+<body>
+    <form name="formulario" action="/"  onsubmit="return validateForm()">
+        <label for="cars">Introduce un texto (Solo letras)</label>
+        <textarea name="texto" id="texto" cols="30" rows="10">
+            Introduce un texto...
+        </textarea>
+
+        <input type="submit">
+    </form>
+
+    <script>
+        // let re = new RegExp('[0123456789]');
+         const validateForm = () => (document.formulario.texto.value.match(/[0123456789]/))?false:true;
+        
+        //.test te dice si lo ha encontrado o no 
+        // const validateForm = () => ( /[0123456789]/.test(document.formulario.texto.value))?false:true;
+    </script>
+</body>
+</html>

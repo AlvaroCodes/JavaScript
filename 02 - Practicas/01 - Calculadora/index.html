@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section>
+        
+            <h2 id="total"></h2>
+        
+    
+        <div>
+
+            <input class="btn btn-gris" onclick="borrar()"id="borrar" type="button" value="AC">
+            <input onclick="valorNegativo()" class="btn btn-gris" type="button" value="+/-">
+            <input class="btn btn-gris" onclick="getValor_modulo()" id="modulo" type="button" value=" % ">
+            <input class="btn btn-orange" onclick="getValor_dividir()"id="Dividir" type="button" value=" / ">
+        </div>
+
+        <div>
+            <input class="btn btn-grisOscuro" onclick="getValor_n7()"id="siete" type="button" value=" 7 ">
+            <input class="btn btn-grisOscuro" onclick="getValor_n8()"id="ocho" type="button" value=" 8 ">
+            <input class="btn btn-grisOscuro" onclick="getValor_n9()"id="nueve" type="button" value=" 9 ">
+            <input class="btn btn-orange" onclick="getValor_multiplicar()"id="Multiplicar" type="button" value=" x ">
+        </div>
+
+
+        <div>
+            <input class="btn btn-grisOscuro" onclick="getValor_n4()" id="cuatro" type="button" value=" 4 ">
+            <input class="btn btn-grisOscuro" onclick="getValor_n5()"id="cinco" type="button" value=" 5 ">
+            <input class="btn btn-grisOscuro" onclick="getValor_n6()"id="seis" type="button" value=" 6 ">
+            <input class="btn btn-orange" onclick="getValor_restar()" id="Restar" type="button" value=" - ">
+        </div>
+
+        <div>
+            <input class="btn btn-grisOscuro" onclick="getValor_n1()" id="uno" type="button" value=" 1 ">
+            <input class="btn btn-grisOscuro" onclick="getValor_n2()" id="dos" type="button" value=" 2 ">
+            <input class="btn btn-grisOscuro" onclick="getValor_n3()" id="tres" type="button" value=" 3 ">
+            <input class="btn btn-orange" onclick="getValor_sumar()"id="Sumar" type="button" value=" + ">
+        </div>
+           
+        <div>
+            <input class="btn btn-grisOscuro" onclick="getValor_n0()"id="cero" type="button" value="  0      ">
+            <input class="btn btn-grisOscuro" onclick="ponerComa()" id="coma" type="button" value="  .  ">
+            <input class="btn btn-orange" onclick="resultado()" id="resultado" type="button" value = " = ">
+        </div>
+    </section>
+
+    <script src="./main2.0.js"></script>
+</body>
+</html>

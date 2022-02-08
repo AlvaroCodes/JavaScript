@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // array con 5 numeros al azar
+
+        let numerosAzar = [];
+        for (let i = 0; i <= 6; i++) {
+            let numeroRan = Math.round((Math.random() * 10));
+            // numerosAzar.push(numeroRan);   
+            
+            numerosAzar = [...numerosAzar, numeroRan];
+        }
+    
+        console.log(numerosAzar);
+
+
+        const calcularMinimo = (array, posicion, minimo) => {
+            if (array.length === posicion){
+                // console.log(minimo);
+                return minimo;
+            }
+
+            if (array[posicion] < minimo){
+                minimo = array[posicion];
+                posicio = posicion + 1;
+                // console.log(minimo);
+
+                calcularMinimo(array, posicion, minimo);
+                
+            }else if (array.length != posicion){
+                posicion++;
+                calcularMinimo(array, posicion, minimo);
+                
+            }
+        }
+
+        /*
+        const calcularMax = (array, posicion, max) => {
+            if (array.length === posicion){
+                // console.log(max);
+                return max;
+            }
+
+            if (array[posicion] > max){
+                max = array[posicion];
+                console.log(max);
+                posicio = posicion + 1;
+                calcularMinimo(array, posicion, max);
+            }else if (array.length != posicion){
+                posicion++;
+                calcularMinimo(array, posicion, max);
+                
+            }
+        }
+
+        let x = calcularMinimo(numerosAzar, 0, 99);
+        let y = calcularMax(numerosAzar, 0, 0);
+        console.log(x);
+        */
+    </script>
+</body>
+</html>

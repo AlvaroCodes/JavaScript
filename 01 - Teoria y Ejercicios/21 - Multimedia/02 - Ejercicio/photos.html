@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Fitness hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Roboto:wght@300;400;700&family=Russo+One&display=swap"
+        rel="stylesheet">
+    <!--<link rel="icon" type="image/png" href="../img/favicon.png">-->
+    <link rel="stylesheet" href="photos.css">
+
+</head>
+
+<body>
+   
+        <header class="header centrarFlex">
+
+            <div class="centrarFlex logo_header">
+                <h2 class="logo ">Fitness Hub<span class="puntoLogo">.</span></h2>
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bike" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#CB2E35" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <circle cx="5" cy="18" r="3" />
+                    <circle cx="19" cy="18" r="3" />
+                    <polyline points="12 19 12 15 9 12 14 8 16 11 19 11" />
+                    <circle cx="17" cy="5" r="1" />
+                  </svg>
+            </div>
+           
+
+            <div class="centrarFlex nav_header">
+                <nav>
+                    <a href="index.html"> Home </a>
+                    <a href="#"> Photos</a>
+                    <a href="FormularioDeContacto.html"> Contact </a>
+                </nav>
+    
+                <div>
+                    <button class="botones-header"><a href="formulario_registro.html">Registration</a></button>
+    
+                    <button class="botones-header"> <a href="FormularioLogin.html">Login</a></button>
+                </div>
+            </div>
+        </header>
+
+
+        <!--
+        Contenido principal imagenes y videos
+    -->
+        <main>
+            <h1>Fitness Hub Por Dentro</h1>
+        
+            <section class="flex_column video">
+
+                <div class="centrarFlex svg_video">
+                     <!--atras-->
+                     <svg onclick="posicionVideo = cambiarDetras(video, sourceVideo, videos, posicionVideo);" id="anteriorVideo"
+                     xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                         d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                 </svg>
+
+                    <!-- Preload metadata ya que los video no sabemos si el usuario lo va a querer ver
+                    no veo el sentido de cargarlos, esto producira que la web vaya mas lenta. 
+                    Con metadata cargara lo indispensable-->
+                    <video id="video1" src="./assets/videoCorto.mp4" preload="metadata">
+                        <source id="sourceVideo" src="./assets/videoCorto.mp4" type="video/mp4">
+                        El navegador no ha reconocido el video.
+                    </video>
+
+                     <!--Delante-->
+                     <svg  onclick="posicionVideo = cambiarDelante(video, sourceVideo, videos, posicionVideo);" id="videoSiguiente"
+                     xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                         d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                 </svg>
+    
+                    
+                </div>
+                
+               
+
+                <div class="reproductor">
+                    <div>
+                        <input class="player_general" oninput="video.currentTime = barra_video.value;" id="barra_repro" type="range" value="0"
+                            min="0">
+                    </div>
+
+                    <!-- Reproductor -->
+                    <div class="centrarFlex">
+                        <!--Bajar sonido-->
+                        <svg onclick="bajarSonido(video)"
+                            xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+
+                        <!--Sonido off-->
+                        <svg id="soundOff_video"
+                            onclick="sonidoOff(video, soundOff_video, soundOn_video)"
+                            xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+                                clip-rule="evenodd" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                        </svg>
+
+                        <!--Sonido on-->
+                        <svg style="display: none;" id="soundOn_video"
+                            onclick= "sonidoOn(video, soundOff_video, soundOn_video)"
+                            xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                        </svg>
+
+                        <!--Mas musica-->
+                        <svg onclick="masMusica(video)"
+                            xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+
+                        <!--atras-->
+                        <svg onclick="atras(video)"
+                            xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                        </svg>
+
+                        <!--Play-->
+                        <svg id="play_video"
+                            onclick="play(video, pausa_video, play_video)"
+                            xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+
+                        <!--Pausa-->
+                        <svg style="display: none;" id="pausa_video"
+                            onclick="pausa(video, pausa_video, play_video)"
+                            xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
+                        </svg>
+
+                        <!--Delante-->
+                        <svg onclick="delante(video)"
+                            xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                        </svg>
+
+                    </div>
+                </div>
+            </section>
+
+        
+            <section class="galeria">
+                <div class="centrarFlex">
+                    <!-- Imagenes del GYM por dentro -->
+                    <div class="flex_column">
+                        <img src="./assets/img/gym1.jpg" alt="gym">
+                        <button class="bt-img" id="show" onclick="document.getElementById('DialogExample').show()">Show
+                            dialog
+                            text</button>
+                        <dialog id="DialogExample">
+                            <!--atras-->
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                            </svg>
+
+                            <!-- cerrar -->
+                            <svg onclick="document.getElementById('DialogExample').close()"
+                            xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+
+                            <!--Delante-->
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                            </svg>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum pariatur reprehenderit rem dignissimos illum odio ipsum possimus, ipsa ducimus quos numquam maiores labore quo temporibus ut </p>
+                        </dialog>
+                    </div>
+
+                    <!-- Imagenes del equipo del gym -->
+                    <div  class="flex_column">
+                        <img src="./assets/img/monitores.jpg" alt="monitores">
+                        <button class="bt-img" id="show" onclick="document.getElementById('DialogExample').show()">Show
+                            dialog
+                            text</button>
+                            <dialog id="DialogExample">
+                                <!--atras-->
+                                <svg 
+                                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                                </svg>
+    
+                                <!-- cerrar -->
+                                <svg onclick="document.getElementById('DialogExample').close()"
+                                xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                  </svg>
+    
+                                <!--Delante-->
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                                </svg>
+                            </dialog>
+                    </div>
+                </div>
+
+                <div class="centrarFlex">
+                    <div  class="flex_column">
+                        <!-- Maquinas del gym -->
+                        <img src="./assets/img/maquina2.jpg" alt="maquina Gym">
+                        <button class="bt-img" id="show" onclick="document.getElementById('DialogExample').show()">Show
+                            dialog
+                            text</button>
+                            <dialog id="DialogExample">
+                                <!--atras-->
+                                <svg 
+                                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                                </svg>
+    
+                                <!-- cerrar -->
+                                <svg onclick="document.getElementById('DialogExample').close()"
+                                xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                  </svg>
+    
+                                <!--Delante-->
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                                </svg>
+                            </dialog>
+                    </div>
+
+                    <div  class="flex_column">
+                        <!-- Actividades del gym -->
+                        <img src="./assets/img/actividades.jpg" alt="actividades">
+                        <button class="bt-img" id="show" onclick="document.getElementById('DialogExample').show()">Show
+                            dialog
+                            text</button>
+                            <dialog id="DialogExample">
+                                <!--atras-->
+                                <svg 
+                                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                                </svg>
+    
+                                <!-- cerrar -->
+                                <svg onclick="document.getElementById('DialogExample').close()"
+                                xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                  </svg>
+    
+                                <!--Delante-->
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                                </svg>
+                            </dialog>
+                    </div>
+
+                </div>
+
+            </section>
+        </main>
+
+        
+    <!--Musica-->
+    <main>
+        <h1>La musica que se escucha en Fitness Hub</h1>
+    </main>
+    
+    <section class="flex_around music">
+        
+        <div class="album flex_column">
+            <div class="centrarFlex svg_video">
+                <!--atras-->
+                <svg onclick="posicionAudio = cambiarDetras (audio, audioSource, audios, posicionAudio)"
+                xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+            </svg>
+
+               <!-- Preload metadata ya que los video no sabemos si el usuario lo va a querer ver
+               no veo el sentido de cargarlos, esto producira que la web vaya mas lenta. 
+               Con metadata cargara lo indispensable-->
+               <img src="./assets/img/albun1.jpg" alt="albun">
+
+               <audio src="./assets/audio.mp3" id="audio">
+                <source id="audioSource" src="./assets/audio.mp3" type="audio/mpeg">
+             No se ha podido reproducir el audio
+              </audio>
+
+                <!--Delante-->
+                <svg onclick="posicionAudio =cambiarDelante (audio, audioSource, audios, posicionAudio)"
+                xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+            </svg>
+
+               
+           </div>
+
+            
+
+            <div class="reproductor">
+                <div>
+                    <input class="player_general" oninput="audio.currentTime = barra_audio.value;" id="barra_reproAudio" type="range" value="0"
+                        min="0">
+                </div>
+
+                <!-- Reproductor -->
+                <div class="centrarFlex">
+                    <!--Bajar sonido-->
+                    <svg onclick="bajarSonido(audio)"
+                        xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+
+                    <!--Sonido off-->
+                    <svg id="soundOff_music"
+                        onclick="sonidoOff(audio, soundOff_music, soundOn_music)"
+                        xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+                            clip-rule="evenodd" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                    </svg>
+
+                    <!--Sonido on-->
+                    <svg style="display: none;" id="soundOn_music"
+                        onclick= "sonidoOn(audio, soundOff_music, soundOn_music)"
+                        xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                    </svg>
+
+                    <!--Mas musica-->
+                    <svg onclick="masMusica(audio)"
+                        xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+
+                    <!--atras-->
+                    <svg onclick="atras(audio)"
+                        xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                    </svg>
+
+                    <!--Play-->
+                    <svg id="play_audio" 
+                        onclick="play(audio, pausa_audio, play_audio)"
+                        xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+
+                    <!--Pausa-->
+                    <svg style="display: none;" id="pausa_audio"
+                        onclick="pausa(audio, pausa_audio, play_audio)"
+                        xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
+                    </svg>
+
+                    <!--Delante-->
+                    <svg onclick="delante(audio)"
+                        xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Listado de canciones-->
+        <div class="canciones">
+            <div>
+                <h1>Eminem - Lose Yourself </h1>
+                <hr>
+            </div>
+
+            <div>
+                <h1>Eminem - Without Me</h1>
+                <hr>
+            </div>
+
+            <div>
+                <h1>Eminem - Not Afraid </h1>
+                <hr>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer flex_around">
+        <section>
+            <h2 class="logo">Fitness Hub<span class="puntoLogo">.</span></h2>
+        </section>
+
+        <section class="connect">
+            <h2>Connect</h2>
+            <nav class="centrarFlex">
+                <div class="centrarFlex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook"
+                        width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+                    </svg>
+
+                    <a href="https://www.facebook.com/">Facebook</a>
+                </div>
+
+                <div class="centrarFlex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram"
+                        width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <rect x="4" y="4" width="16" height="16" rx="4" />
+                        <circle cx="12" cy="12" r="3" />
+                        <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+                    </svg>
+                    <a href="https://www.instagram.com/">Instagram</a>
+                </div>
+            </nav>
+        </section>
+    </footer>
+
+</body>
+
+<script src="app_photos.js">
+
+</script>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+            <!--
+        ######
+
+        ** Ejercicio **
+
+        Pintar los bordes del input si algo esta erroneo cuando se 
+        envía el formulario.
+
+        ######
+    -->
+</head>
+<body>
+
+    <form name="formulario" action="file:///C:/Users/AlvaroRamirezMartine/Desktop/Front-end/03%20-%20JavaScript/01%20-%20Teoria%20y%20Ejercicios/24%20-%20Forms/02%20-%20Ejercicios/02%20-%20Ejercicio.html"  onsubmit="return validateForm()">
+        <label for="cars">Introduce un texto (Solo letras)</label>
+        <textarea name="texto" id="texto" cols="50" rows="2">
+            Introduce un texto...
+        </textarea>
+
+        <input type="submit">
+    </form>
+
+    <script>
+
+        // let re = new RegExp('[0123456789]');
+         const validateForm = () =>{
+
+            if (document.formulario.texto.value.match(/[0123456789]/)) {
+                cambiarBorde()
+                return false;
+            }
+
+            return true;
+
+         } 
+
+         const cambiarBorde = () => {
+            document.formulario.texto.style.borderColor = "red";
+         }
+
+        //.test te dice si lo ha encontrado o no 
+    </script>
+    
+</body>
+</html>

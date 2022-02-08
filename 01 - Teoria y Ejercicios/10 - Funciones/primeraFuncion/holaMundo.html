@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        const nombre =  prompt('Introduzca nombre');
+
+        // function 
+        function holaMundo1(nombre) {
+            alert(`1. ${nombre}`);
+        }
+        holaMundo1(nombre);
+
+        // Anonimas
+        const holaMundo2 =  function holaMundo1(nombre) {
+            alert(`2. ${nombre}`);
+        }
+        holaMundo2(nombre);
+
+        // arrow 
+        const holaMundo3 = (nombre) =>  alert(`3. ${nombre}`);
+        holaMundo3(nombre);
+
+
+        // Parametros concadenados 
+        const concadenar = (n1, n2) => alert(n1+' '+n2);
+        concadenar('Hola', 'Alvaro');
+
+        // Callback
+        const callback = (func) => {
+            const nombreNuevo = prompt('Introduce otro nombre');
+            func(nombreNuevo);
+        }
+
+        callback(holaMundo1);
+    </script>
+</body>
+</html>

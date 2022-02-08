@@ -1,0 +1,445 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+
+    /* Logo */
+    --color-logo-texto: #FCFCFC;
+    --color-logo-punto: #CB2E35;
+
+    /* Tipografía */
+    --texto-normal-contenido: 'Roboto', sans-serif;
+    --texto-logo-cabecera: 'Russo One', sans-serif;
+    --texto-contacto: 'Poppins', sans-serif;
+
+    /* Colores */
+    --color-fondo-header: rgba(19, 22, 33, 0.91);
+    --color-fondo-bloques: #0A1E25;
+    --color-texto: #FFFFFF;
+    --color-botones-gris: #C4C4C4;
+    --color-botones-grisTransp: rgba(149, 145, 151, 0.4);
+    --color-footer-fondo:  rgba(10, 30, 37, 0.82);
+
+    --color-fondo-main: rgba(1, 1, 1, 0.5);
+  }
+
+
+
+/* ==> Globales <== */
+a {
+    text-decoration: none;
+}
+
+body {
+    background: linear-gradient(0.25turn ,#19335A, #195368);
+    height: 100%;
+    width: 100%;
+    font-family: var( --texto-normal-contenido);
+}
+.centrarFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex_column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.flex_around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* ==> Botones <== */
+.bt-img {
+    color: white;
+    border: none;
+    margin: 10px;
+    background-color: #0A1E25;
+    padding: 8px;
+
+    border-radius: 4px;
+}
+
+.bt-img:hover {
+    cursor: pointer;
+}
+
+.botones-header {
+    background-color: var(--color-botones-grisTransp);
+    padding: 5px 20px;
+    border: 1px solid var(--color-fondo-header);
+    border-radius: 10px;
+
+   
+    margin-left: 20px;
+    font-family: var(--texto-normal-contenido);
+    font-size: 0.9rem;
+}
+
+.botones-header a {
+    color: var(--color-texto);
+}
+
+.botones-header a:hover{
+    color: orange;
+}
+
+.botones-header:hover{
+    cursor: hand;
+}
+
+/* ==> Logo <== */
+.logo{
+    font-family: var(--texto-logo-cabecera);
+    font-size: 1.3rem;
+    color: var(--color-logo-texto);
+    letter-spacing: 5px;
+
+    transition: color 4s steps(5);
+}
+.puntoLogo{
+    color: var(--color-logo-punto);
+}
+
+
+/* ==> header <== */
+.header{
+    height: 20%;
+    width: 100%;
+    background-color: var(--color-fondo-header);
+    padding: 1%;
+}
+
+.logo_header {
+    position: relative;
+    width: 50%;
+    text-align: center;
+
+    animation-name: logo-header;
+    animation-duration: 1s;
+
+    
+}
+
+.logo_header svg  {
+    color: white;
+    margin-left: 7px;
+    
+}
+
+
+@keyframes logo-header {
+    0%   {left:-100px; opacity: 0;}
+    100% {left:0px; opacity: 1;}
+}
+
+.logo:hover{
+    color: #e2b242;
+}
+
+.nav_header {
+    margin-right: 20px;
+    width: 50%;
+}
+
+.header nav a {
+    font-family: var(--texto-contacto);
+    color: var(--color-texto);
+    font-size: 0.9rem;
+    margin: 0 15px;
+
+    font-size: 300;
+}
+
+.header nav a:hover{
+    color: orange;
+}
+
+.header .centrarFlex div  nav {
+    margin-left: 20px;
+    padding: 12px;
+}
+
+
+/* =========> Main <=========== */
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main section {
+    width: 100%;
+}
+
+main h1 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 500px) {
+   body {
+       background-color: #CB2E35;
+   }
+}
+
+/*==>  Vido <==*/
+.video {
+    width: 70%;
+}
+
+.video video {
+    width: 70%;
+    margin: 0px 10px 20px 10px;
+
+    -webkit-box-shadow: 1px 4px 19px 3px #000000; 
+     box-shadow: 1px 4px 19px 3px #000000;
+}
+
+
+
+.svg_video svg{
+    width: 40px;
+    color: white;
+    transition: color 1.2s;
+}
+
+.svg_video svg:hover{
+    color: yellowgreen;
+}
+
+/*==>  Galeria <==*/
+
+.galeria {
+    width: 100%;
+}
+
+.galeria .centrarFlex {
+    width: 100%;
+    height: 50%;
+}
+
+.galeria .centrarFlex div{
+    margin-top: 30px;
+    height: 25%;
+    width: 50%;
+}
+
+.galeria .centrarFlex img {
+    height: 25%;
+    width: 50%;
+    -webkit-box-shadow: 1px 4px 19px 3px #000000; 
+    box-shadow: 1px 4px 19px 3px #000000;
+
+    border-radius: 5px;
+}
+
+/* ====== Estilo de reproduccion ==========*/
+.reproductor {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    background-color: var(--color-footer-fondo);
+    border-radius: 5px;
+    padding: 10px;  
+}
+
+.reproductor svg {
+    width: 10%;
+    color: rgb(172, 171, 171);
+    margin: 2px;
+}
+
+.reproductor svg:hover {
+    color: rgb(243, 192, 96);
+}
+
+
+.reproductor div {
+    width: 90%;
+}
+
+.player_general {
+    -webkit-appearance: none;
+    width: 100%;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+
+}
+
+.player_general::-webkit-slider-runnable-track{
+    background-color: #195368;
+    height: 3px;
+    border-radius: 3px;
+}
+
+.player_general::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    border-radius: 100%;
+    background-color: #FFFFFF;
+    height: 12px;
+    width: 12px;
+    margin-top: -5px;
+}
+
+.player_general::-webkit-slider-thumb:hover{
+    background-color: #e2b242;
+    cursor: pointer;
+}
+
+/* ====== Estilo de reproduccion ==========*/
+
+dialog {
+    height: 60%;
+    width: 90%;
+    margin: 0 auto;
+    border: none;
+    border-radius: 10px;
+
+    -webkit-box-shadow: 1px 4px 19px 3px #000000; 
+    box-shadow: 1px 4px 19px 3px #000000;
+
+    background-color: #195368;
+    background-image: url(./assets/img/gym.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+    animation-name: rotate;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+
+    transition: background-image 1.2s ease-in-out;
+}
+
+
+@keyframes rotate {
+0%   {transform: rotate(0deg);}
+100% {transform: rotate(360deg);}
+}
+
+
+dialog svg {
+    width: 30px;
+    color: white;
+    margin: 5px;
+    background-color: var(--color-footer-fondo);
+
+    border-radius: 3px;
+}
+
+dialog:hover{
+    background-image: none;
+}
+
+dialog svg :hover{
+    cursor: pointer;
+    color: #CB2E35;
+}
+
+dialog p {
+    margin-top: 25px;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1.2s;
+}
+
+dialog p:hover{
+    opacity: 1;
+}
+
+/* ====== Seccion 1  ==========*/
+.music {
+   width: 80%;
+   margin: 0 auto;
+}
+
+.canciones {
+    width: 70%;
+    margin: 10px;
+}
+.album {
+    width: 30%;
+    margin: 10px;
+}
+
+.album img {
+    border-radius: 6px;
+    width: 70%;
+    margin-bottom: 10px;
+    filter: contrast(180%);
+}
+
+.canciones h1 {
+        font-size: 1.2rem;
+}
+
+.canciones h1:hover{
+    color: #e2b242;
+    cursor: pointer;
+}
+
+.canciones div {
+    margin-top: 11px;
+}
+
+
+/* ==> Footer <== */
+.footer{
+      height: 17%;
+      width: 100%;
+      background-color: var(--color-footer-fondo);
+      margin-top: 40px;
+  }
+
+.connect {
+    text-align: center;
+    width: 37%;
+}
+.connect h2 {
+    font-family: var(--texto-contacto);
+    font-size: 1.4rem;
+    color: var(--color-texto);
+} 
+
+.connect nav div {
+    margin-left: 15px;
+}
+
+.connect nav div a{
+    margin: 10px;
+    color: var(--color-texto);
+    font-family: var(--texto-contacto);
+}
+
+.connect nav div a:hover{
+    color: orange;
+    
+}
+
+.connect svg {
+    width: 30px;
+}
+
+
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+<body>
+    
+    <h1>Ejercicio 10</h1>
+
+
+    <script>
+        var parent = {
+        val: 80,
+        get: function fn() {
+        return this.val;
+        }
+        }
+        var child = Object.create(parent);
+        child.val = 40;
+        var grandchild = Object.create(parent);
+        console.log('parent: ' + parent.get());
+        console.log('child: ' + child.get());
+        console.log('grandchild: ' + grandchild.get());
+
+
+        /*
+            parent: 80 // Valor inicial del objeto padre
+            child: 40 // child.val = 40; Cambia el prototipo del padre a 40
+            grandchild: 80 // Como no ha cambiado el prototipo tiene el del padre
+        */
+    </script>
+</body>
+</html>

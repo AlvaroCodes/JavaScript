@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        const fruits = ['apple', 'orange', 'cherry'];
+        const imprimir = (item, i) => {
+            console.log(i + ' '+item);
+        }
+
+        fruits.forEach(imprimir);
+
+        ///////////////////////////////////////
+        //////////////////////////////////////
+        const numero = [1,5,3,4,5,6];
+
+        let contador = 0;
+        numero.forEach((item)=>contador += item);
+        console.log(`La suma total es: ${contador}`);
+
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
+
+        console.log(numero.sort());
+        // Da la vuelta al array
+        console.log(fruits.reverse());
+
+        const points = [40, 100, 1, 5, 25, 10];
+        // Ordena de forma alfa
+        // Necesario funcion para numeros
+       //  points.sort(function (a, b) {return a - b;});
+       // points.sort(sortFunct);
+        console.log(points);
+
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
+        function sortFunct(a, b) {
+            if (a > b){
+                return 1;
+            }else if (b > 1){
+                return -1;
+    
+            }else {
+                return 0;
+            }
+        }
+        ////////////////////////////////////
+        /// un array de objetos (personas)
+        // ordenar array de personas nombre y edad
+
+        function Person(first, last, age, gender, interests) {
+            
+            this.first = first;
+            this.last = last;
+
+            this.age = age;
+            this.gender = gender;
+            this.interests = interests;
+        }
+
+        const paco = new Person('paco', 'gomez', 38, 'female', ['soccer', 'tennis']);
+        const alvaro = new Person('alvaro', 'ramirez', 23, 'female', ['soccer', 'tennis']);
+        const alvaro2 = new Person('alvaro', 'perez', 32, 'female', ['soccer', 'tennis']);
+
+        let persons = [paco, alvaro, alvaro2];
+      
+       
+    
+        // function sortFunct2({first:a}, {first:b}) {
+        function sortFunct2(a, b) {
+          
+            a = a.first;
+            b = b.first;
+        
+            if (a > b){
+                return 1;
+            }else if (b > a){
+                return -1;
+    
+            }else {
+                return 0;
+            }
+        }
+            
+       //  function sortFunctEdad({age:a}, {age:b})
+        function sortFunctEdad(a, b) {
+            a = a.age;
+            b = b.age;
+
+            if (a > b){
+                return 1;
+            }else if (b > a){
+                return -1;
+    
+            }else {
+                return 0;
+            }
+        }
+
+        persons.sort(sortFunct2);
+        persons.sort(sortFunctEdad);
+
+        console.log(persons);
+    
+    </script>
+</body>
+</html>

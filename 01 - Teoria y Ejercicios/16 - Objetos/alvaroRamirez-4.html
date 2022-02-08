@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ejercicio 4</h1>
+
+    <script>
+
+        const Shape = {
+            xPosition: 10,
+            yPosition: 15,
+            area: function (){
+                return this.xPosition * this.yPosition;
+            }
+        }
+
+        console.log({Shape});
+        console.log('Area Shape = '+Shape.area());
+       
+        //// Circulo
+        const Circle = Object.create(Shape);
+        Circle.yPosition = Math.PI;
+        Circle.xPosition =  Math.pow(5,2);
+      
+    
+        console.log({Circle});
+        console.log('Area Circle = '+Circle.area());
+    
+
+         //// Square
+        const Square = Object.create(Shape);
+        Square.yPosition = 5;
+        Square.xPosition = 5;
+       
+        console.log({Square});
+        console.log('Area Square = '+Square.area());
+
+        //// Triagle
+        const Triagle = Object.create(Shape);
+        Triagle.yPosition = 7;
+        Triagle.xPosition = 5;
+      
+        console.log({Triagle});
+        console.log('Area Triagle = '+Triagle.area()/2);
+
+         console.log('===============')
+
+      
+        //////////////////
+        // => Ejemplo de codigo polimorfismo
+        /////////////////
+
+
+        const Animal = {
+            tipoAlimentacion: 'omnívoros'
+        }
+ 
+
+        const Perro = Object.create(Animal);
+        const Pez = Object.create(Animal);
+
+        Perro.raza = 'Pastor aleman';
+        Pez.color = 'Rojo';
+
+        console.log({Animal});
+        console.log({Perro});
+        console.log({Pez});
+
+
+    </script>
+</body>
+</html>

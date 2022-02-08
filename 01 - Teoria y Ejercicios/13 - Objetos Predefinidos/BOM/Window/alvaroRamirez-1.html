@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Ejercicio 1</h1>
+
+    <script>
+        let urlUsuario = prompt('Introduce una URL: ');
+        urlUsuario = urlUsuario.toLowerCase();
+
+        const parametro = 'saludo=';
+        let indexParametro = urlUsuario.indexOf(parametro);
+
+        let textUrl = (indexParametro === -1)
+        ?'Introduce el parametro saludo ='
+        :urlUsuario.slice(indexParametro + parametro.length);
+
+        console.log('Texto introducido por consola: '+textUrl);
+
+        const nuevaWindow = window.open("urlUsuario", "urlUsuario", "width=500,height=500");
+        nuevaWindow.document.write(`<h1>${textUrl}</h1>`);
+
+    </script>
+</body>
+</html>

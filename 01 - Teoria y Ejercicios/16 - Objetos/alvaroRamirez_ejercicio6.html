@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ejercicio 6</h1>
+
+    <script>
+
+        function Persona (nomnbre, apellido, edad) {
+            this.nombre = nomnbre;
+            this.apellido = apellido;
+            this.edad = edad;
+
+            this.toString = function () {
+                return `${this.apellido}, ${this.nombre} - ${this.edad} años`
+            }
+        }
+
+        const Manuel = new Persona ('Manuel', 'A. Ruiz de Lopera', 23);
+        const Juan = new Persona ('Ana', 'Ruiz de Lopera', 21);
+        const Gonzalo = new Persona ('Gonzalo', 'Ruiz de Lopera', 75);
+        const Alvaro = new Persona ('Alvaro', 'Ruiz de Lopera', 75);
+
+        console.log({Manuel});
+        console.log( Manuel.toString());
+
+        let arrPersonas = [Manuel, Juan, Gonzalo, Alvaro];
+
+       function sortFunctNombre({nombre:a}, {nombre:b}) {
+      
+        if (a > b){
+              return 1;
+          }else if (a < b){
+              return -1;
+  
+          }else {
+              return 0;
+          }
+      }
+          
+      function sortFunctApellido({apellido:a}, {apellido:b}) {
+      
+        if (a > b){
+              return 1;
+          }else if (a < b){
+              return -1;
+  
+          }else {
+              return 0;
+          }
+  }
+     
+      function sortFunctEdad({edad:a}, {edad:b}){
+        if (a > b){
+              return 1;
+          }else if (a < b){
+              return -1;
+  
+          }else {
+              return 0;
+          }
+      }
+
+      arrPersonas.sort(sortFunctApellido);
+      arrPersonas.sort(sortFunctNombre);
+      arrPersonas.sort(sortFunctEdad);
+
+      console.log(arrPersonas);
+
+    </script>
+</body>
+</html>

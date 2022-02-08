@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div onclick="alert('Me ejecuto segundo <div>')">
+        <p onclick="alert('Me ejecuto primero <p>')">Hola mundoooo</p>
+    </div>
+  
+
+    <div onclick="nombreCurrent()">
+        <p onclick="nombreCurrent()">Target</p>
+    </div>
+
+    <script>
+
+        // palabra reservada event para ver los eventos
+        function tipo () {
+            alert('Tipo: '+event.type);
+        }
+
+        function nombre () {
+            alert('Nombre: '+event.target.tagName); // Target: Quien lo ejecuta
+        }
+
+        
+        function nombreCurrent () {
+            alert('Nombre: '+event.currentTarget.tagName); // currentTarget: Quien lo procesa (captura)
+            event.stopPropagation();
+        }
+
+
+        function nombreCurrentThis () {
+           alert('Nombre: '+this);
+        }
+
+        function eventPhase() {
+            alert(event.eventPhase)
+        }
+
+    </script>
+</body>
+</html>
