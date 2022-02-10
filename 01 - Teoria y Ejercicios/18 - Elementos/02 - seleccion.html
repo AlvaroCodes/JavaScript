@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+/*
+        let x = prompt('introduce lo que quieras introducir en el texto');
+        let parrafo = document.createElement('p');
+        parrafo.innerText = x;
+        document.body.appendChild(parrafo);
+*/
+
+        let h1 = document.createElement('H1');
+        let texNode = document.createTextNode("Hello World");
+        let texNode2 =  document.createTextNode("Bye World");
+
+        h1.appendChild(texNode);
+        // h1.removeChild(texNode);
+        // h1.appendChild(texNode2);
+
+        h1.replaceChild(texNode2, texNode);
+        document.body.appendChild(h1);
+
+    </script>
+</body>
+</html>

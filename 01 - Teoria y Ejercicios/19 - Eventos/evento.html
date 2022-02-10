@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Ejercicio Event</h2>
+    <p>1.- Crear un boton que tenga un evento que muestre un alert con el nombre del boton</p>
+    <p>2.- En otro evento diferent, Numero de elementos de un formulario</p>
+    <p>3. Eliminar evento mostrar nombre boton tras darle a un boton</p>
+
+    <form action="/--" >
+        <ul>
+          <li>
+            <label for="uname">User name:</label>
+            <input type="text" name="uname" id="uname" min="5" max="20" required>
+          </li>
+          <li>
+            <label for="email">Email address:</label>
+            <!--pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"> -->
+            <!--pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"-->
+            <input type="text" name="email" id="email" pattern=".+@.+\..+" required>
+          </li>
+          <li>
+               <!--pattern="[0-9 {3}-[0-9]{2}-[0-9]{3}]"-->
+               <!--/ ^ \ (? (\ d {3}) \)? [-]? (\ d {3}) [-]? (\ d {4}) $ /-->
+            <label for="phone">Phone number:</label>
+            <input type="text" name="phone" id="phone" pattern="[0-9]{9}" min="1" max="20" required>
+          </li>
+          <li>
+            <label for="comment">Comment:</label>
+            <textarea name="comment" id="comment" min="0" max="200" required>
+            </textarea>
+          </li>
+          <li>
+            <!--<button onclick="return comprobar()">Submit comment</button>-->
+            <!-- No funciona comprobar con onsubmit -->
+            <input onsubmit="return comprobar()" type="submit">
+          </li>
+        </ul>
+      </form>
+
+    <script>
+        const boton = document.createElement("button");
+        boton.innerText = "This is a paragraph";
+        document.body.appendChild(boton);
+
+        boton.addEventListener("click",()=>{
+            alert(`El numero de elemento es ${document.querySelector('form').elements.length} y el boton se llama ${boton.textContent}`);
+        })
+
+    </script>
+</body>
+</html>

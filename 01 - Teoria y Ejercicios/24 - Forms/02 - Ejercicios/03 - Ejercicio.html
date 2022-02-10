@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Form validation: Task 1</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #333;
+        font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+        padding: 1em;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+
+  <body>
+
+
+    <h2>Enter your support query</h2>
+
+    <h3>Validacion de formularios</h3>
+    <p>1.- Que todos los campos sean obligatorios. </p>
+    <p>2.- Validar campo email y telefono usanto expresiones regulares</p>
+    <p>3.- Cambia el tipo del elemento con js</p>
+    <p>4.- Añade limetes a los campos input</p>
+
+      <!-- novalidate -->
+    <form action="/--" >
+      
+    
+
+
+      <ul>
+        <li>
+          <label for="uname">User name:</label>
+          <input type="text" name="uname" id="uname" min="5" max="20" required>
+        </li>
+        <li>
+          <label for="email">Email address:</label>
+          <!--pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"> -->
+          <!--pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"-->
+          <input type="text" name="email" id="email" pattern=".+@.+\..+" required>
+        </li>
+        <li>
+             <!--pattern="[0-9 {3}-[0-9]{2}-[0-9]{3}]"-->
+             <!--/ ^ \ (? (\ d {3}) \)? [-]? (\ d {3}) [-]? (\ d {4}) $ /-->
+          <label for="phone">Phone number:</label>
+          <input type="text" name="phone" id="phone" pattern="[0-9]{9}" min="1" max="20" required>
+        </li>
+        <li>
+          <label for="comment">Comment:</label>
+          <textarea name="comment" id="comment" min="0" max="200" required>
+          </textarea>
+        </li>
+        <li>
+          <!--<button onclick="return comprobar()">Submit comment</button>-->
+          <!-- No funciona comprobar con onsubmit -->
+          <input onsubmit="return comprobar()" type="submit">
+        </li>
+      </ul>
+    </form>
+
+    <script>
+
+        document.querySelector('textarea').value = '';
+
+        const comprobar = () => {
+            
+            let input = document.querySelectorAll('input');
+
+           return document.querySelector('textarea').value == '' && false;
+
+            for (let i = 0; i < input.length; i++) {
+                let element = input[i];
+                if (element.value == ''){
+                   
+                    return false
+                }   
+            } 
+            return true;
+        }
+
+        document.querySelector("input[name='phone']").type = 'tel';
+        document.querySelector("input[name='email']").type = 'email';
+
+    </script>
+
+  </body>
+
+</html>
