@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+
+
+    <style>
+        input:invalid {
+            border: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 3: Validación de formularios.</h1>
+    <p>3.1. Crear un formulario con al menos los siguientes elementos: text, number, checkbox, select, textArea, date, submit. </p>
+    <p>3.2. Realizar la validación HTML5 cuando se pulse el botón de submit, antes de enviar la información al servidor, validando al menos los criterios: required, max, min, minlength, maxlength y pattern. Combinados como se desee en los inputs del form anterior. Marcar el borde de rojo en los inputs inválidos usando Pseudoclases.</p>
+    <p>3.3. Realizar la validación usando javascript, también al pulsar en submit y antes de enviar el formulario. Aplicar los mismos criterios del 3.2. Marcar el borde de rojo en los inputs inválidos usando el DOM.</p>
+    <p>3.5. Crear mensajes de error personalizados para la validación HTML5</p>
+
+    <form action="">
+        <label for="Nombre">Nombre: </label>
+        <input id="nombre" type="text" required minlength="3" maxlength="30">
+
+<br>
+<br>
+
+        <label for="Edad">Edad: </label>
+        <input id="edad" type="number" required minlength="1" maxlength="150">
+
+<br>
+<br>
+
+        <label for="Genero">Genero:</label>
+        <br>
+        <label for="Genero">Hombre: </label> <input name="genero" type="checkbox">
+        <label for="Genero">Mujer: </label> <input  name="genero" type="checkbox">
+        <label for="Genero">Otro: </label> <input  name="genero" type="checkbox">
+
+<br>
+<br>
+
+        <label for="Region">Region</label>
+        <select name="Region" id="region" required>
+            <option value="">Introducce una opcion</option>
+            <option value="España">España</option>
+            <option value="Mexico">Mexico</option>
+            <option value="Francia">Francia</option>
+        </select>
+
+<br>
+<br>
+        <label for="FechaNacimiento">Fecha de nacimiento: </label>
+        <input id="date" type="date" required>
+
+<br>
+<br>
+
+        <label for="question">Enviar pregunta: </label>
+        <textarea name="question" id="" cols="30" rows="10" required minlength="1" maxlength="200"></textarea>
+    
+        <br>
+        <br>
+        <input onsubmit="return comprobarDatos()" type="submit">
+    
+    </form>
+
+    <script>
+        // -> Nombre
+        const validarNombre  = () => {
+            let nombre = document.querySelector('#nombre').value;
+            const regex = /^[A-Za-z]+$/; // Comprueba que solo tenga letras
+            const soloLetras = regex.test(nombre);
+           return (nombre.length > 0 && soloLetras == true)?true:false;
+        }
+
+        ///////////
+
+        // -> Edad
+        const validarEdad = () => {
+            let edad = document.querySelector('#edad').value;
+            const regex = /^[A-Za-z]+$/; // Comprueba que solo tenga letras
+            const soloLetras = regex.test(edad);
+           return (edad.length > 0 && soloLetras == false)?true:false;
+        }
+
+         ///////////
+
+        // -> Genero
+        const validarGenero = () => {
+            let checkboxNodelist = document.querySelectorAll('input[type=checkbox]');
+          
+            for (let i of checkboxNodelist) {
+               if (i.checked == true){
+                   return true;
+               }
+            }
+            return false;
+        }
+
+        ///////////
+
+        // -> Region
+        const validarRegion = () => {
+            return (document.querySelector('select').value != "")?true:false;
+        }
+
+        //////////
+
+        // -> Fecha
+        const validarFecha = () => {
+            let dateString = document.querySelector('#date').value;
+            let date = new Date(dateString);
+
+            return (date.getFullYear() > 1872 && dateString != '')?true:false;
+        }
+
+        ///////////
+
+        // -> TextArea
+        const validarTextarea = () => {
+            return (document.querySelector('textArea').value.length > 0  && document.querySelector('textArea').value.length < 300)
+            ?true
+            :false;
+        }
+
+        // ### Eventos ### 
+        let nombre = document.querySelector('#nombre');
+        nombre.setCustomValidity('Ingresa bien tu nombre :/'); // ?? 
+        nombre.addEventListener('focusout', ()=>{
+            nombre.style.border = (validarNombre())
+            ? '1px solid green'
+            : '1px solid red';
+        });
+
+        let edad = document.querySelector('#edad');
+        edad.setCustomValidity('Ingresa bien tu edad :/');
+        edad.addEventListener('focusout', ()=>{
+            edad.style.border = (validarEdad())
+            ? '1px solid green'
+            : '1px solid red';
+        });
+
+        // Solucionar Checkbock
+
+        let select = document.querySelector('select');
+        select.setCustomValidity('Ingresa bien tu Region :/');
+        select.addEventListener('focusout', ()=>{
+            select.style.border = (validarRegion())
+            ? '1px solid green'
+            : '1px solid red';
+        });
+
+        let date = document.querySelector('#date');
+        date.setCustomValidity('Ingresa bien tu fecha de nacimietno :/');
+        date.addEventListener('focusout', ()=>{
+            date.style.border = (validarFecha())
+            ? '1px solid green'
+            : '1px solid red';
+        });
+
+        let text = document.querySelector('textArea');
+        text.setCustomValidity('Ingresa bien el texto :/');
+        text.addEventListener('focusout', ()=>{
+            text.style.border = (validarTextarea())
+            ? '1px solid green'
+            : '1px solid red';
+        });
+
+        // #### Submit addEventListener ?? 
+        // let submit = document.querySelectorAll('input[type=submit]');
+        const comprobarDatos = () => (validarNombre() && validarEdad() && validarGenero() && validarRegion() && validarFecha() && validarTextarea())?true:false;
+
+    </script>
+</body>
+</html>
