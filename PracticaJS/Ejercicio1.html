@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    
+    <h1>Ejercicio 1</h1>
+    <h3>Ejercicio 1: Agregar un botón de cierre</h3>
+    <p>Eliminar el siguiente parrafo cuando se pulse un boton</p>
+    <button>Toggle</button>
+</body>
+
+    <script>
+
+    let parrafo =  document.querySelector('p');
+         
+       
+        document.querySelector('button').addEventListener("click", (e)=>{
+                
+        (parrafo.style.display == 'none')
+             ?parrafo.style.display = 'block'
+             :parrafo.style.display = 'none';          
+        });
+
+    </script>
+</html>

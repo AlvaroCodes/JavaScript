@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+
+    <style>
+      table, th, td {
+        border:1px solid black;
+        margin-top: 40px;
+      }
+      </style>
+</head>
+<body>
+    
+    <h1>Ejercicio 2</h1>
+    <h3>Ejercicio 2: Crear una tabla dinámicamente con el tamaño indicado por el usuario y eliminar el contenido de la celda indicada por el usuario. Un botón y dos inputs para cada una de las acciones. [2.5 puntos]</h3>
+
+
+    <br>
+    <br>
+
+    <label for="column">Introduce el numero de columnas: </label>
+    <input id="input1" type="number">
+    <br>
+    <label for="row">Introduce el numero de filas: </label>
+    <input id="input2" type="number">
+    <br>
+    <button onclick="app()">Crear tabla</button>
+
+    <script>
+
+        let tablaCreada = false;      
+
+        const crearTabla = () => {
+
+        console.log('## Tabla Creada ##');
+
+        let columns = document.querySelector('#input1').value;
+        let rows = document.querySelector('#input2').value;
+
+
+          let table = '<table>';
+
+          for (let i = 0; i < columns; i++) {
+            table+="<tr>";
+
+            for (let j = 0; j < rows; j++) {
+             
+              table+=`<td>${i} - ${j}</td>`;
+              
+            }
+            table+="</tr>"; 
+          }
+          table+='</table>';
+
+          document.body.innerHTML+= table;
+
+          tablaCreada = true;
+          cambiarDatos();            
+        }
+
+
+
+        const cambiarDatos = () => {
+          console.log('## Se han modificado los datos de la web por que has creado la tabla ##');
+          document.querySelectorAll('label')[0].innerText = "Introduce el numero de la columna a borrar (Ejemplo 0 - 0 es la primera): ";
+          document.querySelectorAll('label')[1].innerText = "Introduce el numero de fila a borrar (Ejemplo 0 - 0 es la primera): ";
+          document.querySelector('button').firstChild.data = "Eliminar dato tabla";
+        }
+
+
+        const eliminar = () => {
+          console.log('## Elimina los datos que quieras de la tabla ##');
+          let columns = document.querySelector('#input1').value;
+          let rows = document.querySelector('#input2').value;
+
+          let x = document.querySelector('tbody').childNodes[columns];
+          x.childNodes[rows].textContent = "";
+        }
+
+
+        const app = () => {
+        try{
+          (tablaCreada == false)?crearTabla():eliminar();  
+        }catch(e){
+          console.error('Has introducido un numero que no esta en la tabla');
+        }
+        }
+
+    </script>
+
+</body>
+</html>
