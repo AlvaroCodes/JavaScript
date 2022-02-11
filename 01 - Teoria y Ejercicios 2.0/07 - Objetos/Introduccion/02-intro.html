@@ -10,6 +10,7 @@
     
     <script>
 
+        // Objeto Literal 
         const person = {
             name: 'Jhon', 
             apellido: 'Doe',
@@ -22,12 +23,13 @@
             fullName: () => `${person.name} ${person.apellido}`
         }
 
+        // Metodo del objeto person
         console.log(person.fullName());
         console.log(person.saludo());
 
+        // A los objetos se le pueden añadir nuevos atributos tras su creación
         // Añadir atributos a objetos
         person.altura = 123;
-
         console.log(person);
 
 
