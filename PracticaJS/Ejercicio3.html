@@ -83,14 +83,13 @@
         <input id="nombre" type="text" required minlength="3" maxlength="30">
 
 <br>
-
-
         <label for="Edad">Edad: </label>
         <input id="edad" type="number" required minlength="1" maxlength="150">
 
 <br>
 
-
+        
+        <!--Solucionar Checkbock ??????? Como se haria para seleccionar solo uno y sea requerido desde HTML -->  
         <label for="Genero">Genero:</label>
         <br>
         <label for="Genero">Hombre: </label> <input name="genero" type="checkbox">
@@ -200,8 +199,6 @@
         let edad = document.querySelector('#edad');
         
         edad.addEventListener('focusout', ()=>{
-
-
             if (validarEdad()){
                 edad.style.border = '2px solid green';
             }else {
@@ -212,7 +209,26 @@
 
         });
 
-        // Solucionar Checkbock ??????? Como se haria 
+
+        let checkboxNodelist = document.querySelectorAll('input[type=checkbox]');
+        checkboxNodelist.forEach((elemt)=>{
+
+            elemt.addEventListener("mouseover", ()=>{
+                if (validarGenero()){
+                    for (let i of checkboxNodelist) {
+                        if (i.checked == false){
+                            i.disabled = true;
+                        }
+                    }
+                }else {
+                    for (let i of checkboxNodelist) {
+                            i.disabled = false;
+                    }
+                }
+
+            })
+
+        });
 
         let select = document.querySelector('select');
         select.addEventListener('focusout', ()=>{
@@ -255,6 +271,7 @@
         });
 
         // #### Submit addEventListener ???????? Como se haria 
+        // Se podría poner como un atributo creado con onSubmit y que ejecute esa funcion ?
         // let submit = document.querySelectorAll('input[type=submit]');
         const comprobarDatos = () => (validarNombre() && validarEdad() && validarGenero() && validarRegion() && validarFecha() && validarTextarea())?true:false;
 
