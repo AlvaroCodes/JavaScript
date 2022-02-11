@@ -8,6 +8,63 @@
 
 
     <style>
+
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: rgb(252, 236, 216);
+        }
+
+
+        h1, p {
+         
+            width: 40%;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        form {
+            width: 20%;
+            margin: 0 auto;
+            margin-top: 15px;
+            padding: 20px 0;
+            border-radius: 8px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            background-color: rgb(190, 152, 106);
+
+        }
+
+        label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        input[type=submit]{
+            color: white;
+
+            border: none;
+            padding: 20px;
+            background-color: rgb(102, 73, 11);
+            border-radius: 5px;
+
+
+        } 
+
+        input[type=submit]:hover{
+            color: rgb(117, 117, 117);
+            background-color: rgb(180, 133, 31);
+        }
+
+
+
         input:invalid {
             border: 1px solid red;
         }
@@ -26,13 +83,13 @@
         <input id="nombre" type="text" required minlength="3" maxlength="30">
 
 <br>
-<br>
+
 
         <label for="Edad">Edad: </label>
         <input id="edad" type="number" required minlength="1" maxlength="150">
 
 <br>
-<br>
+
 
         <label for="Genero">Genero:</label>
         <br>
@@ -41,7 +98,7 @@
         <label for="Genero">Otro: </label> <input  name="genero" type="checkbox">
 
 <br>
-<br>
+
 
         <label for="Region">Region</label>
         <select name="Region" id="region" required>
@@ -52,18 +109,18 @@
         </select>
 
 <br>
-<br>
+
         <label for="FechaNacimiento">Fecha de nacimiento: </label>
         <input id="date" type="date" required>
 
 <br>
-<br>
+
 
         <label for="question">Enviar pregunta: </label>
         <textarea name="question" id="" cols="30" rows="10" required minlength="1" maxlength="200"></textarea>
     
         <br>
-        <br>
+     
         <input onsubmit="return comprobarDatos()" type="submit">
     
     </form>
@@ -84,7 +141,7 @@
             let edad = document.querySelector('#edad').value;
             const regex = /^[A-Za-z]+$/; // Comprueba que solo tenga letras
             const soloLetras = regex.test(edad);
-           return (edad.length > 0 && soloLetras == false)?true:false;
+           return (edad > 0 && soloLetras == false)?true:false;
         }
 
          ///////////
@@ -129,48 +186,75 @@
 
         // ### Eventos ### 
         let nombre = document.querySelector('#nombre');
-        nombre.setCustomValidity('Ingresa bien tu nombre :/'); // ?? 
         nombre.addEventListener('focusout', ()=>{
-            nombre.style.border = (validarNombre())
-            ? '1px solid green'
-            : '1px solid red';
+
+            if (validarNombre()) {
+                nombre.style.border = '2px solid green';
+            }else {
+                nombre.setCustomValidity('Ingresa bien tu edad :/');
+                alert('Has introducido el nombre de manera erronea');
+                nombre.style.border = '2px solid red';
+            }
         });
 
         let edad = document.querySelector('#edad');
-        edad.setCustomValidity('Ingresa bien tu edad :/');
+        
         edad.addEventListener('focusout', ()=>{
-            edad.style.border = (validarEdad())
-            ? '1px solid green'
-            : '1px solid red';
+
+
+            if (validarEdad()){
+                edad.style.border = '2px solid green';
+            }else {
+                edad.setCustomValidity('Ingresa bien tu edad :/');
+                alert('Has introducido una edad de manera incorrecta');
+                edad.style.border = '2px solid red';
+            }
+
         });
 
-        // Solucionar Checkbock
+        // Solucionar Checkbock ??????? Como se haria 
 
         let select = document.querySelector('select');
-        select.setCustomValidity('Ingresa bien tu Region :/');
         select.addEventListener('focusout', ()=>{
-            select.style.border = (validarRegion())
-            ? '1px solid green'
-            : '1px solid red';
+
+
+            if (validarRegion()){
+                select.style.border = '2px solid green';
+            }else {
+                select.setCustomValidity('Ingresa bien tu Region :/');
+                alert('Has seleccionado la regioin de manera incorrecta');
+                select.style.border = '2px solid red';
+            }
+
         });
 
         let date = document.querySelector('#date');
-        date.setCustomValidity('Ingresa bien tu fecha de nacimietno :/');
+       
         date.addEventListener('focusout', ()=>{
-            date.style.border = (validarFecha())
-            ? '1px solid green'
-            : '1px solid red';
+            if (validarFecha()){
+                date.style.border = '2px solid green';
+            }else {
+                date.setCustomValidity('Ingresa bien tu fecha de nacimietno :/');
+                alert('Has introducido la feccha de manera incorrecta');
+                date.style.border = '2px solid red';
+            }
         });
 
         let text = document.querySelector('textArea');
-        text.setCustomValidity('Ingresa bien el texto :/');
+      
         text.addEventListener('focusout', ()=>{
-            text.style.border = (validarTextarea())
-            ? '1px solid green'
-            : '1px solid red';
+
+            if (validarTextarea()){
+                text.style.border = '2px solid green';
+            }else {
+                text.setCustomValidity('Ingresa bien el texto :/'); 
+                alert('Has introducido un texto incorrecto');
+                text.style.border = '2px solid red';
+            }
+
         });
 
-        // #### Submit addEventListener ?? 
+        // #### Submit addEventListener ???????? Como se haria 
         // let submit = document.querySelectorAll('input[type=submit]');
         const comprobarDatos = () => (validarNombre() && validarEdad() && validarGenero() && validarRegion() && validarFecha() && validarTextarea())?true:false;
 
