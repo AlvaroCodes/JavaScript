@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    
+    <h1>Ejercicio 2</h1>
+    <p>Al evento anterior, asígnale dos handlers más, cada uno que muestre un nuevo alert. De esta forma al hacer click en el botón saltarían 3 alerts, uno por cada handler respectivamente.</p>
+
+    <input type="submit" value="Hola">
+
+
+    <script>
+    let x = document.querySelector('input');
+
+      x.addEventListener('click',(event)=>{
+           alert(`handel1 ${x.value}`);
+        });
+
+        x.addEventListener('click',(event)=>{
+            alert(`handel2 ${x.value}`);
+        });
+
+        x.addEventListener('click',(event)=>{
+            alert(`handel3 ${x.value}`);
+        });
+
+    </script>
+</body>
+</html>

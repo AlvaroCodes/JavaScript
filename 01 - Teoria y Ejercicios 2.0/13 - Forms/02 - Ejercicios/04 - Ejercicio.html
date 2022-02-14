@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+
+
+    <style>
+         input:invalid {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 10</h1>
+    <p>Crea un formulario de registro con al menos 5 tipos de inputs diferentes y un botón que haga el submit del mismo.</p>
+
+    <form action="">
+        <label for="Nombre">Nombre: </label>
+        <input id="nombre" type="text" required minlength="3" maxlength="30">
+
+<br>
+        <label for="Edad">Edad: </label>
+        <input id="edad" type="number" required minlength="1" maxlength="150">
+
+<br>
+
+        <label for="Contraseña">Contraseña</label>
+        <input type="password"  minlength="3" maxlength="30" required>
+
+<br>
+
+        <label for="telefono">Telefono: </label>
+        <input placeholder="123-456-789" type="tel"pattern="[0-9]{3}[-][0-9]{3}[-][0-9]{3}" required>
+
+<br>
+
+        <label for="FechaNacimiento">Fecha de nacimiento: </label>
+        <input id="date" type="date" required>
+
+<br>
+
+     
+        <input onsubmit="" type="submit">
+    
+    </form>
+
+    <script>
+
+        let tel = document.querySelector('input[type=tel]');
+        tel.addEventListener('keyup', (event)=>{
+
+            let valueTel = tel.value;
+            let result = /[0-9]{3}[-][0-9]{3}[-][0-9]{3}/.test(valueTel);
+
+            if (!result){
+                if (valueTel.length == 4 && valueTel[3] != '-'){
+                alert('Te falta el primer guion');
+                }else if (valueTel.length == 8 && valueTel[7] != '-'){
+                    alert('Te falta el segundo guion');
+                }
+            }
+
+            /*
+            let arr = [...valueTel];
+            for (let i = 0; i < arr.length; i++) {
+                
+                if (i != 3){
+                    if (isNaN(arr[i])){
+                        alert(i+' Has colocado un guion en el sitio incorrecto')
+                    }
+                }
+
+            }*/
+
+             if (valueTel.length == 11 && result == true){
+                alert('Has introducido los datos correctamente');
+            }
+        })
+       
+    </script>
+</body>
+</html>

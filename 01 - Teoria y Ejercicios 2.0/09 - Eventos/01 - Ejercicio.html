@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+
+    <h1>Ejercicio 1</h1>
+    <p>Asigna un handler que capture el evento de click de ratón sobre un input de tipo botón de manera que, al hacer click en el botón, se muestre un alert con el texto que aparezca en el botón.</p>
+    
+
+    <input type="submit" value="Hola">
+
+
+    <script>
+    let x = document.querySelector('input');
+
+      x.addEventListener('click',(event)=>{
+           alert(x.value);
+        });
+
+    </script>
+
+</body>
+</html>

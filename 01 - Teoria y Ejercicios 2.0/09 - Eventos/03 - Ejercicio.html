@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <h1>Ejercicio 3</h1>
+    <p>Añade un botón que elimina el segundo handler de los tres del ejercicio anterior. De modo que al hacer click en este nuevo botón y luego en el botón del ejercicio 1, sólo se muestra el alert del primer handler, y el alert del tercer handler.</p>
+
+
+    <input type="submit" value="Hola">
+    <button onclick="eliminarEvent()" >Eliminar evento</button>
+
+
+    <script>
+    let x = document.querySelector('input');
+
+        x.addEventListener('click', hola1)
+
+        x.addEventListener('click',  hola2);
+
+        x.addEventListener('click', hola3);
+
+        function hola1() {
+            alert('Hola 1')
+        }
+
+        function hola2() {
+            alert('Hola 2')
+        }
+
+        function hola3() {
+            alert('Hola 3')
+        }
+
+
+        const eliminarEvent = ()=>{
+            document.querySelector('input').removeEventListener('click', hola2);
+        }
+       
+
+    </script>
+
+  
+</body>
+</html>
